@@ -1,0 +1,30 @@
+﻿========================================
+     LICORERIA - REGISTRO DE PEDIDOS
+========================================
+1. Ver productos
+2. Registrar pedido
+3. Ver ventas del dia
+4. Salir
+Elige una opcion: Nombre del cliente: Codigo del producto: Cantidad: Total a cobrar: S/ 42,00
+Confirmar pedido (s/n): Pedido cancelado.
+
+========================================
+     LICORERIA - REGISTRO DE PEDIDOS
+========================================
+1. Ver productos
+2. Registrar pedido
+3. Ver ventas del dia
+4. Salir
+Elige una opcion: 
+Ventas del 11/10/2026
+Todavia no hay ventas hoy.
+
+========================================
+     LICORERIA - REGISTRO DE PEDIDOS
+========================================
+1. Ver productos
+2. Registrar pedido
+3. Ver ventas del dia
+4. Salir
+Elige una opcion: Datos guardados. Hasta luego.
+

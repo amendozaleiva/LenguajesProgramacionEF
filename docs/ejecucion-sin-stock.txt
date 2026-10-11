@@ -1,0 +1,18 @@
+﻿========================================
+     LICORERIA - REGISTRO DE PEDIDOS
+========================================
+1. Ver productos
+2. Registrar pedido
+3. Ver ventas del dia
+4. Salir
+Elige una opcion: Nombre del cliente: Codigo del producto: Cantidad: No hay stock suficiente. Stock actual: 24
+
+========================================
+     LICORERIA - REGISTRO DE PEDIDOS
+========================================
+1. Ver productos
+2. Registrar pedido
+3. Ver ventas del dia
+4. Salir
+Elige una opcion: Datos guardados. Hasta luego.
+

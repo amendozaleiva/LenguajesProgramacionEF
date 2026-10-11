@@ -1,0 +1,26 @@
+LICORERIA - Proyecto integrador (Tema 7)
+Curso: Fundamentos de Programación
+Lenguaje: C#
+
+Qué hace
+Registra pedidos de una licorería por consola. Muestra productos, cobra,
+descuenta el stock y guarda todo en archivos de texto.
+
+Cómo abrirlo
+1. Abrir Licoreria.sln con Visual Studio.
+2. Poner el proyecto Licoreria como proyecto de inicio.
+3. Ejecutar con F5.
+
+Por consola, desde esta carpeta:
+    dotnet run --project Licoreria
+    dotnet test
+
+Los datos quedan en Licoreria\datos\productos.txt y ventas.txt.
+
+Menú
+1. Ver productos
+2. Registrar pedido
+3. Ver ventas del día
+4. Salir
+
+El informe del laboratorio está en docs\informe.pdf.

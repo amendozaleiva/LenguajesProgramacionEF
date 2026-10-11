@@ -1,0 +1,49 @@
+﻿========================================
+     LICORERIA - REGISTRO DE PEDIDOS
+========================================
+1. Ver productos
+2. Registrar pedido
+3. Ver ventas del dia
+4. Salir
+Elige una opcion: 
+Codigo   Producto                         Precio    Stock
+----------------------------------------------------------
+1        Cerveza Pilsen 620 ml           S/ 6,50       24
+2        Cerveza Cristal 620 ml          S/ 6,00       18
+3        Pisco Quebranta 750 ml         S/ 42,00       10
+4        Ron Cartavio 750 ml            S/ 36,00        8
+5        Vino tinto 750 ml              S/ 25,00        6
+6        Agua San Luis 625 ml            S/ 2,00       30
+7        Gaseosa Inca Kola 500 ml        S/ 3,50       20
+
+========================================
+     LICORERIA - REGISTRO DE PEDIDOS
+========================================
+1. Ver productos
+2. Registrar pedido
+3. Ver ventas del dia
+4. Salir
+Elige una opcion: Nombre del cliente: Codigo del producto: Cantidad: Total a cobrar: S/ 13,00
+Confirmar pedido (s/n): Pedido registrado. Total a cobrar: S/ 13,00
+
+========================================
+     LICORERIA - REGISTRO DE PEDIDOS
+========================================
+1. Ver productos
+2. Registrar pedido
+3. Ver ventas del dia
+4. Salir
+Elige una opcion: 
+Ventas del 11/10/2026
+1. Ana | Cerveza Pilsen 620 ml | cant. 2 | S/ 13,00 | 11/10/2026 20:56
+Total recaudado: S/ 13,00
+
+========================================
+     LICORERIA - REGISTRO DE PEDIDOS
+========================================
+1. Ver productos
+2. Registrar pedido
+3. Ver ventas del dia
+4. Salir
+Elige una opcion: Datos guardados. Hasta luego.
+

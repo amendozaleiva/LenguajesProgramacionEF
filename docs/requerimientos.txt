@@ -1,0 +1,32 @@
+PROYECTO INTEGRADOR - TEMA 7
+Curso: Fundamentos de Programación
+Programa: pedidos de una licorería
+
+HISTORIA DE USUARIO
+Como vendedor de la licorería, quiero registrar un pedido, cobrar el total
+y descontar el stock, para no vender de más y saber cuánto se recaudó en el día.
+
+ENUNCIADO
+La licorería necesita un programa de consola para anotar los pedidos del
+mostrador. El vendedor ve los productos, elige uno, indica la cantidad y
+el nombre del cliente. El programa calcula el total, baja el stock y guarda
+la venta en un archivo para que no se pierda al cerrar.
+
+REQUERIMIENTOS FUNCIONALES
+RF01. Mostrar los productos con código, nombre, precio y stock.
+RF02. Registrar un pedido con cliente, código de producto y cantidad.
+RF03. Calcular el total multiplicando el precio por la cantidad.
+RF04. Pedir confirmación antes de guardar el pedido.
+RF05. No vender si la cantidad es mayor que el stock.
+RF06. Descontar el stock solo cuando el pedido queda registrado.
+RF07. Guardar productos y ventas en archivos de texto.
+RF08. Al abrir el programa, volver a cargar esos archivos.
+RF09. Mostrar las ventas del día y el total recaudado.
+
+REQUERIMIENTOS NO FUNCIONALES
+RNF01. El programa se escribe en C# y se usa desde la consola.
+RNF02. Los mensajes están en español y son cortos.
+RNF03. Los datos se guardan en datos/productos.txt y datos/ventas.txt.
+RNF04. El cálculo, el stock y los archivos están en clases distintas del menú,
+       para poder probarlos sin escribir en la pantalla.
+RNF05. Una línea mal escrita en el archivo no debe tumbar el programa.

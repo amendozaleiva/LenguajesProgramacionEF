@@ -1,0 +1,37 @@
+﻿========================================
+     LICORERIA - REGISTRO DE PEDIDOS
+========================================
+1. Ver productos
+2. Registrar pedido
+3. Ver ventas del dia
+4. Salir
+Elige una opcion: Opcion no valida.
+
+========================================
+     LICORERIA - REGISTRO DE PEDIDOS
+========================================
+1. Ver productos
+2. Registrar pedido
+3. Ver ventas del dia
+4. Salir
+Elige una opcion: Nombre del cliente: El nombre del cliente no puede estar vacio.
+
+========================================
+     LICORERIA - REGISTRO DE PEDIDOS
+========================================
+1. Ver productos
+2. Registrar pedido
+3. Ver ventas del dia
+4. Salir
+Elige una opcion: Nombre del cliente: Codigo del producto: Ingresa un numero entero.
+Codigo del producto: Cantidad: La cantidad debe ser mayor que cero.
+
+========================================
+     LICORERIA - REGISTRO DE PEDIDOS
+========================================
+1. Ver productos
+2. Registrar pedido
+3. Ver ventas del dia
+4. Salir
+Elige una opcion: Datos guardados. Hasta luego.
+

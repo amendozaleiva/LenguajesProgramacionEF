@@ -1,0 +1,39 @@
+DIAGRAMA DE FLUJO (registro de un pedido)
+
+                    +------------------+
+                    |      Inicio      |
+                    +--------+---------+
+                             |
+                             v
+                    +------------------+
+                    | Leer cliente,    |
+                    | código y cantidad|
+                    +--------+---------+
+                             |
+                             v
+                    +------------------+
+                    | ¿Cliente vacío,  |
+                    | código inexistente|
+                    | cantidad <= 0 o  |
+                    | sin stock?       |
+                    +--------+---------+
+                      sí /         \ no
+                        v           v
+              +----------------+   +------------------+
+              | Mostrar error  |   | Mostrar total y  |
+              | No guardar     |   | pedir s/n        |
+              +-------+--------+   +--------+---------+
+                      |                sí /      \ no
+                      |                 v         v
+                      |     +----------------+  +----------------+
+                      |     | Descontar stock|  | Cancelar       |
+                      |     | Guardar archivos| | No guardar    |
+                      |     +-------+--------+  +-------+--------+
+                      |             |                   |
+                      +-------------+-------------------+
+                                    |
+                                    v
+                             +-------------+
+                             | Volver al   |
+                             | menú        |
+                             +-------------+

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Informe - Proyecto integrador Tema 7</title>
+<style>
+  body { font-family: "Times New Roman", Times, serif; font-size: 12pt; color: #111; margin: 2cm; line-height: 1.35; }
+  h1 { font-size: 16pt; text-align: center; margin-bottom: 0; }
+  h2 { font-size: 13pt; margin-top: 1.2em; border-bottom: 1px solid #333; }
+  .centro { text-align: center; margin: 0; }
+  pre { font-family: Consolas, monospace; font-size: 9pt; background: #f4f4f4; padding: 8px; white-space: pre-wrap; }
+  table { border-collapse: collapse; width: 100%; margin: 8px 0; }
+  th, td { border: 1px solid #333; padding: 4px 6px; text-align: left; font-size: 11pt; }
+  .caja { border: 1px solid #333; padding: 8px 12px; margin: 6px 0; }
+  ul { margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<p class="centro">Universidad Privada del Norte</p>
+<h1>Informe de laboratorio</h1>
+<p class="centro">Tema 7 — Proyecto integrador</p>
+<p class="centro">Fundamentos de Programación</p>
+
+<table>
+  <tr><th>Experiencia</th><td>Desarrollo de un proyecto integrador aplicando estructuras, funciones, control de versiones y pruebas</td></tr>
+  <tr><th>Problema</th><td>Registro de pedidos de una licorería</td></tr>
+  <tr><th>Lenguaje</th><td>C# (consola)</td></tr>
+  <tr><th>Integrante</th><td>________________________________</td></tr>
+  <tr><th>Fecha</th><td>11 de octubre de 2026</td></tr>
+</table>
+
+<h2>1. Problema</h2>
+<p>En el mostrador de una licorería hay que anotar qué se vende, cobrar el total y bajar el stock. Si eso se anota solo en un cuaderno, al cerrar el turno se pierde la cuenta o se vende un producto que ya no queda.</p>
+<p><strong>Historia de usuario.</strong> Como vendedor de la licorería, quiero registrar un pedido, cobrar el total y descontar el stock, para no vender de más y saber cuánto se recaudó en el día.</p>
+
+<h2>2. Requerimientos</h2>
+<p><strong>Funcionales</strong></p>
+<ul>
+  <li>RF01. Ver productos con código, nombre, precio y stock.</li>
+  <li>RF02. Registrar un pedido con cliente, código y cantidad.</li>
+  <li>RF03. Calcular el total (precio por cantidad).</li>
+  <li>RF04. Confirmar el pedido antes de guardarlo.</li>
+  <li>RF05. No vender si no hay stock suficiente.</li>
+  <li>RF06. Descontar el stock solo cuando el pedido queda registrado.</li>
+  <li>RF07. Guardar productos y ventas en archivos de texto.</li>
+  <li>RF08. Cargar esos archivos al abrir el programa.</li>
+  <li>RF09. Mostrar las ventas del día y el total recaudado.</li>
+</ul>
+<p><strong>No funcionales</strong></p>
+<ul>
+  <li>RNF01. Programa de consola en C#.</li>
+  <li>RNF02. Mensajes cortos, en español.</li>
+  <li>RNF03. Persistencia en <em>datos/productos.txt</em> y <em>datos/ventas.txt</em>.</li>
+  <li>RNF04. El cálculo y los archivos están separados del menú, para probarlos sin la pantalla.</li>
+</ul>
+
+<h2>3. Diseño</h2>
+<p>En memoria se usan dos listas: una de productos y otra de ventas. Los archivos de texto conservan los datos al cerrar. Cada línea separa los campos con una barra vertical.</p>
+
+<p><strong>Pseudocódigo del pedido</strong></p>
+<pre>leer cliente, código y cantidad
+si el cliente está vacío, el código no existe,
+   la cantidad es menor que 1 o no hay stock entonces
+    mostrar el error y no guardar
+si no
+    total = precio * cantidad
+    pedir confirmación (s/n)
+    si confirma entonces
+        stock = stock - cantidad
+        agregar la venta
+        guardar productos.txt y ventas.txt
+    si no
+        cancelar
+    fin si
+fin si</pre>
+
+<p><strong>Flujo del pedido</strong></p>
+<div class="caja">Inicio → leer datos → ¿datos inválidos o sin stock? → sí: avisar y volver al menú. No: mostrar el total → ¿confirma? → sí: descontar stock y guardar. No: cancelar. En ambos casos se vuelve al menú.</div>
+
+<p><strong>Clases</strong></p>
+<table>
+  <tr><th>Clase</th><th>Responsabilidad</th></tr>
+  <tr><td>Producto</td><td>Código, nombre, precio y stock</td></tr>
+  <tr><td>Venta</td><td>Cliente, cantidad, total y fecha del pedido</td></tr>
+  <tr><td>CajaLicoreria</td><td>Buscar producto, calcular, registrar y sumar el día</td></tr>
+  <tr><td>ArchivoDatos</td><td>Leer y escribir los dos archivos</td></tr>
+  <tr><td>Programa</td><td>Menú de la consola</td></tr>
+</table>
+
+<h2>4. Fragmento del código</h2>
+<p>El total y el control de stock no están en el menú. Así se pueden probar solos.</p>
+<pre>public static double CalcularTotal(double precio, int cantidad)
+{
+    return Math.Round(precio * cantidad, 2);
+}
+
+if (producto.Stock &lt; cantidad)
+{
+    mensaje = "No hay stock suficiente. Stock actual: " + producto.Stock;
+    return false;
+}
+
+producto.Stock = producto.Stock - cantidad;</pre>
+
+<h2>5. Pruebas</h2>
+<p>Se ejecutó <em>dotnet test</em>. Resultado: 12 pruebas correctas, 0 con error.</p>
+<table>
+  <tr><th>Prueba</th><th>Qué verifica</th></tr>
+  <tr><td>CalcularTotal_DosPilsen</td><td>6.50 por 2 = 13.00</td></tr>
+  <tr><td>RegistrarPedido_ConStock</td><td>Baja el stock y guarda la venta</td></tr>
+  <tr><td>RegistrarPedido_SinStock</td><td>No vende y no descuenta</td></tr>
+  <tr><td>RegistrarPedido_CantidadCero</td><td>Rechaza cantidad 0</td></tr>
+  <tr><td>RegistrarPedido_CodigoQueNoExiste</td><td>Rechaza un código inválido</td></tr>
+  <tr><td>RegistrarPedido_ClienteVacio</td><td>No registra si no hay nombre</td></tr>
+  <tr><td>SumarTotales_DosVentas</td><td>Suma lo recaudado</td></tr>
+  <tr><td>VentasDeLaFecha</td><td>Solo lista las ventas de ese día</td></tr>
+  <tr><td>GuardarYCargarProductos</td><td>El archivo conserva código, precio y stock</td></tr>
+  <tr><td>GuardarYCargarVentas</td><td>El archivo conserva el total de la venta</td></tr>
+  <tr><td>Cargar si no existe</td><td>Devuelve una lista vacía</td></tr>
+  <tr><td>Linea mal escrita</td><td>Ignora la línea dañada y sigue</td></tr>
+</table>
+
+<h2>6. Ejecución</h2>
+<p><strong>Pedido normal.</strong> Opción 1 (ver productos). Opción 2: cliente Ana, código 1, cantidad 2, confirmar con s. Opción 3 (ventas del día). Opción 4 (salir).</p>
+<pre>Codigo   Producto                         Precio    Stock
+1        Cerveza Pilsen 620 ml           S/ 6,50       24
+...
+Total a cobrar: S/ 13,00
+Pedido registrado. Total a cobrar: S/ 13,00
+
+Ventas del 11/10/2026
+1. Ana | Cerveza Pilsen 620 ml | cant. 2 | S/ 13,00 | 11/10/2026 20:56
+Total recaudado: S/ 13,00
+Datos guardados. Hasta luego.</pre>
+
+<p><strong>Sin stock.</strong> Cliente Luis, código 1, cantidad 100.</p>
+<pre>No hay stock suficiente. Stock actual: 24</pre>
+
+<p><strong>Cancelar.</strong> Cliente Maria, código 3 (pisco), cantidad 1, confirmación n. Después, la opción 3 no muestra ventas.</p>
+<pre>Total a cobrar: S/ 42,00
+Pedido cancelado.
+Todavia no hay ventas hoy.</pre>
+
+<p><strong>Otras entradas.</strong> La opción 9 avisa que no es válida. Un cliente en blanco se rechaza. Si el código se escribe con letras, pide un número entero. La cantidad 0 no registra el pedido.</p>
+
+<h2>7. Errores y correcciones</h2>
+<ul>
+  <li>Al inicio, un cliente en blanco igual pedía el código y mostraba el total. Se corrigió para avisar en ese momento y volver al menú, sin tocar el stock.</li>
+  <li>En Windows en español el decimal se ve con coma (6,50). El archivo guarda el punto (6.50) para que al volver a abrirlo el precio no se pierda. La pantalla sigue mostrando la coma.</li>
+  <li>Si una línea de <em>productos.txt</em> está incompleta, se ignora y se cargan las demás.</li>
+</ul>
+
+<h2>8. Control de versiones</h2>
+<p>El proyecto está en un repositorio Git local, con commits separados para el diseño, el programa, las pruebas y este informe. Para la entrega se sube ese repositorio a GitHub.</p>
+
+<p class="centro">Fin del informe</p>
+</body>
+</html>

@@ -1,0 +1,55 @@
+PSEUDOCÓDIGO - REGISTRO DE PEDIDOS
+
+INICIO
+    cargar productos desde productos.txt
+    si no hay productos entonces
+        cargar la lista inicial y guardarla
+    fin si
+    cargar ventas desde ventas.txt
+
+    repetir
+        mostrar menú
+        leer opción
+
+        si opción = 1 entonces
+            mostrar código, nombre, precio y stock de cada producto
+
+        si opción = 2 entonces
+            leer cliente
+            si el cliente está vacío entonces
+                avisar y volver al menú
+            fin si
+            leer código
+            leer cantidad
+            buscar el producto
+            si existe y hay stock entonces
+                total = precio * cantidad
+                mostrar total
+                leer confirmación
+                si la confirmación no es "s" entonces
+                    cancelar el pedido
+                fin si
+            fin si
+            si el pedido es válido entonces
+                stock = stock - cantidad
+                agregar la venta a la lista
+                guardar productos.txt y ventas.txt
+            si no
+                mostrar el motivo
+            fin si
+
+        si opción = 3 entonces
+            recorrer las ventas cuya fecha es hoy
+            sumar los totales
+            mostrar el total recaudado
+
+        si opción = 4 entonces
+            guardar los dos archivos
+            terminar
+        fin si
+    hasta que el usuario salga
+FIN
+
+CÁLCULO DEL TOTAL
+    total = redondear(precio * cantidad, 2 decimales)
+    devolver total

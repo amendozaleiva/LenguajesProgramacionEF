@@ -1,0 +1,7 @@
+1|Cerveza Pilsen 620 ml|6.50|23
+2|Cerveza Cristal 620 ml|6.00|18
+3|Pisco Quebranta 750 ml|42.00|10
+4|Ron Cartavio 750 ml|36.00|8
+5|Vino tinto 750 ml|25.00|6
+6|Agua San Luis 625 ml|2.00|30
+7|Gaseosa Inca Kola 500 ml|3.50|20

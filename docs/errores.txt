@@ -1,0 +1,21 @@
+ERRORES ENCONTRADOS Y CÓMO SE CORRIGIERON
+
+1. Cliente vacío pedía igual el código y el total
+   Qué pasó: si el nombre iba en blanco, el menú seguía pidiendo el producto,
+   mostraba el total y recién al final avisaba que el cliente no servía.
+   Corrección: el nombre se revisa apenas se escribe. Si está vacío, se avisa
+   y se vuelve al menú. El stock no se toca.
+   Prueba: RegistrarPedido_ClienteVacio_NoRegistra y la ejecución
+   ejecucion-validaciones.txt.
+
+2. El archivo de precios en una PC en español
+   Qué pasó: Windows muestra los decimales con coma (6,50). Si esa misma coma
+   se guardaba en productos.txt, al leer el archivo el precio no salía.
+   Corrección: el archivo guarda el punto (6.50). La pantalla puede mostrar
+   la coma. Así el archivo no depende del idioma de la computadora.
+   Prueba: GuardarYCargarProductos_ConservaCodigoPrecioYStock.
+
+3. Una línea dañada en productos.txt
+   Qué pasó: si una línea no tiene las 4 partes, el programa no debe cerrarse.
+   Corrección: esa línea se ignora y se cargan las demás.
+   Prueba: CargarProductos_IgnoraUnaLineaMalEscrita.

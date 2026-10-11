@@ -1,0 +1,30 @@
+DIAGRAMA DE CLASES
+
++-------------------+         usa          +------------------+
+| Programa          |--------------------->| CajaLicoreria    |
+| (menú de consola) |                      |                  |
++-------------------+                      | Productos        |
+        |                                  | Ventas           |
+        | usa                              | CalcularTotal()  |
+        v                                  | RegistrarPedido()|
++-------------------+                      | VentasDeLaFecha()|
+| ArchivoDatos      |                      | SumarTotales()   |
+| CargarProductos() |                      +--------+---------+
+| GuardarProductos()|                               |
+| CargarVentas()    |                               | contiene
+| GuardarVentas()   |                    +----------+----------+
++-------------------+                    |                     |
+                                         v                     v
+                                 +---------------+     +---------------+
+                                 | Producto      |     | Venta         |
+                                 | Codigo        |     | Numero        |
+                                 | Nombre        |     | Cliente       |
+                                 | Precio        |     | Cantidad      |
+                                 | Stock         |     | Total         |
+                                 +---------------+     | Fecha         |
+                                                       +---------------+
+
+Estructuras de datos
+- List<Producto> para el catálogo en memoria.
+- List<Venta> para los pedidos en memoria.
+- Archivos de texto para que los datos sigan después de cerrar el programa.
